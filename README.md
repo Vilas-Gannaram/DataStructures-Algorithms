@@ -7,15 +7,16 @@ DataStructures &amp; Algorithms using Javascript
 
 * JavaScript Built-In Searching algo:
 
-EX:-    let names = ['Jhon', 'Adam', 'Brad']
-        names.indexOf('Brad') returns '2'
+    EX:-    
+            let names = ['Jhon', 'Adam', 'Brad']
+            names.indexOf('Brad') returns '2'
 
-    If it found 'Brad' in the names array. It returns the index of the 'Brad' else '-1'.
-    Similarly it has other mothods also:
-        -includes,
-        -find,
-        -findIndex,
-        behind the scenes the algo for this built-in javascript methods is "Linear Search".
+If it found 'Brad' in the names array. It returns the index of the 'Brad' else '-1'.
+Similarly it has other mothods also:
+    -includes,
+    -find,
+    -findIndex,
+behind the scenes the algo for this built-in javascript methods is "Linear Search".
 
 # Linear Search:
 * Given an array, the simplest way to search for an value is to look at every element in the array and check if it's the value we want.
