@@ -1,17 +1,19 @@
 function binarySearch(array, target) {
-    var left, right, center;
-    left = 0;
-    right = array.length - 1;
-    center = Math.floor((left + right) / 2);
-    while (array[center] !== target && left <= right) {
-        if (target < array[center]) {
-            right = center - 1;
-        } else {
-            left = center + 1;
-        }
-        center = Math.floor((left + right) / 2);
+
+    let start = 0,
+        end = array.length - 1,
+        middle = Math.floor((start + end) / 2)
+
+    while (array[middle] !== target && start <= end) {
+
+        //  Divide and Conquer
+        if (target < array[middle]) end = middle - 1
+        else start = middle + 1
+
+        middle = Math.floor((start + end) / 2)
     }
-    if (array[center] === target) return center;
-    return -1;
+
+    return (array[middle] === target) ? middle : -1
 }
-console.log(binarySearch([-1, 0, 3, 5, 9, 12], 9));
+
+console.log(binarySearch([-1, 0, 3, 5, 9, 12], 12))
