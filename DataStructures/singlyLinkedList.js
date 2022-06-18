@@ -79,12 +79,43 @@ class MyLinkedList {
     }
 }
 
-let list = new MyLinkedList()
+
+
+
+
+// Using Array:
+
+class MyLinkedList_Arr {
+    constructor() {
+        this.list = []
+    }
+    addAtHead(data) {
+        this.list.unshift(data)
+    }
+    addAtTail(data) {
+        this.list.push(data)
+    }
+    addAtIndex(idx, data) {
+        this.list.splice(idx, 0, data)
+    }
+    get(idx) {
+        return this.list[idx]
+    }
+    deleteAtIndex(idx) {
+        if (idx) return this.list.splice(idx, 1)
+    }
+}
+
+let list = new MyLinkedList_Arr()
 
 list.addAtHead(3)
 list.addAtTail(4)
 list.addAtIndex(0, 2)
 list.addAtIndex(0, 1)
 list.addAtTail(5)
+
+console.log(list)
+
+console.log(list.deleteAtIndex())
 
 console.log(list)

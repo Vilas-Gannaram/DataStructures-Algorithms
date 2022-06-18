@@ -1,3 +1,4 @@
+//  Using linked list
 class Node {
     constructor(data) {
         this.data = data
@@ -5,7 +6,7 @@ class Node {
     }
 }
 
-class Queue {
+class Queue_LS {
     constructor() {
         this.front = null
         this.rear = null
@@ -50,12 +51,38 @@ class Queue {
     }
 }
 
+
+
+//  Using Array
+class Queue {
+    constructor() {
+        this.queue = []
+    }
+    enqueue(data) {
+        this.queue.unshift(data)
+    }
+    dequeue() {
+        return this.queue.pop()
+    }
+    peek() {
+        return this.queue[this.queue.length - 1]
+    }
+    isEmpty() {
+        return !this.queue.length ? true : false
+        // if(!this.queue.length) return true
+        // return false
+    }
+    length() {
+        return this.queue.length
+    }
+}
+
 let queue = new Queue()
 
-queue.enqueue(1)
-queue.enqueue(2)
-queue.enqueue(3)
-queue.enqueue(4)
 queue.enqueue(5)
+queue.enqueue(4)
+queue.enqueue(3)
+queue.enqueue(2)
+queue.enqueue(1)
 
 console.log(queue)

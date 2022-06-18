@@ -1,3 +1,4 @@
+// Using Linked List:
 class Node {
     constructor(data) {
         this.data = data
@@ -5,7 +6,7 @@ class Node {
     }
 }
 
-class Stack {
+class Stack_LS {
     constructor() {
         this.top = null
         this.bottom = null
@@ -53,12 +54,37 @@ class Stack {
     }
 }
 
+
+
+// Using Array
+
+class Stack {
+    constructor() {
+        this.stack = []
+    }
+    push(data) {
+        this.stack.push(data)
+    }
+    pop() {
+        return this.stack.pop()
+    }
+    peek() {
+        return this.stack[this.stack.length - 1]
+    }
+    isEmpty() {
+        return !this.stack.length ? true : false
+    }
+    size() {
+        return this.stack.length
+    }
+}
+
 let stack = new Stack()
 
-stack.push(1)
-stack.push(2)
-stack.push(3)
-stack.push(4)
 stack.push(5)
+stack.push(4)
+stack.push(3)
+stack.push(2)
+stack.push(1)
 
-console.log(stack)
+console.log(stack.size())
