@@ -1,102 +1,90 @@
-var Node = function (val) {
-    this.val = val;
-    this.next = null;
-};
-
-var MyLinkedList = function () {
-    this.head = null;
-    this.length = 0;
-};
-
-MyLinkedList.prototype.get = function (index) {
-    if (index < 0 || index >= this.length) return -1;
-    if (index === 0) return this.head.val;
-
-    var counter, current;
-    counter = 0;
-    current = this.head;
-    while (counter < index && current.next) {
-        current = current.next;
-        counter++;
+class Node {
+    constructor(val) {
+        this.val = val
+        this.next = null
     }
-    return current.val;
-};
+}
 
-MyLinkedList.prototype.addAtHead = function (val) {
-    var cur = new Node(val);
-    if (!this.head) {
-        this.head = cur;
-    } else {
-        cur.next = this.head;
-        this.head = cur;
+class MyLinkedList {
+    constructor() {
+        this.head = null
+        this.length = 0
     }
-    this.length++;
-    return;
-};
+    get(index) {
+        if (index < 0 || index >= this.length) return -1
+        if (index === 0) return this.head.val
 
-MyLinkedList.prototype.addAtTail = function (val) {
-    var cur = new Node(val);
-    if (!this.head) {
-        this.head = cur;
-    } else {
-        var current = this.head;
-        while (current.next) {
-            current = current.next;
+        let counter = 0, current = this.head
+
+        while (counter < index && current.next) {
+            current = current.next
+            counter++
         }
-        current.next = cur;
+        return current.val
     }
-    this.length++;
-    return;
-};
-
-MyLinkedList.prototype.addAtIndex = function (index, val) {
-    if (index < 0 || index > this.length) return false;
-    if (index === 0) return !!this.addAtHead(val);
-    if (index === this.length) return !!this.addAtTail(val);
-
-    var node, counter, current, after;
-    node = new Node(val);
-    counter = 0;
-    current = this.head;
-    while (counter < index - 1) {
-        current = current.next;
-        counter++;
+    addAtHead(val) {
+        let cur = new Node(val)
+        if (!this.head) this.head = cur
+        else {
+            cur.next = this.head
+            this.head = cur
+        }
+        this.length++
     }
-    after = current.next;
-    current.next = node;
-    node.next = after;
+    addAtTail(val) {
+        let cur = new Node(val)
+        if (!this.head) this.head = cur
+        else {
+            let current = this.head
+            while (current.next) {
+                current = current.next
+            }
+            current.next = cur
+        }
+        this.length++
+    }
+    addAtIndex(index, val) {
+        if (index < 0 || index > this.length) return false
+        if (index === this.length) return !!this.addAtTail(val)
+        if (index === 0) return !!this.addAtHead(val)
 
-    this.length++;
-};
+        let node = new Node(val), counter = 0, current = this.head
 
-MyLinkedList.prototype.deleteAtIndex = function (index) {
-    if (index < 0 || index >= this.length) return false;
-    if (index === 0) {
-        this.head = this.head.next;
-    } else {
-        var counter, current, after, fNode;
-        counter = 0;
-        current = this.head;
         while (counter < index - 1) {
-            current = current.next;
-            counter++;
+            current = current.next
+            counter++
         }
-        fNode = current.next;
-        after = fNode.next;
-        current.next = after;
+
+        let after = current.next
+        current.next = node
+        node.next = after
+
+        this.length++
     }
-    this.length--;
-};
+    deleteAtIndex(index) {
+        if (index < 0 || index >= this.length) return false
+        if (index === 0) {
+            this.head = this.head.next
+        } else {
+            let counter = 0, current = this.head
 
-var list = new MyLinkedList();
+            while (counter < index - 1) {
+                current = current.next
+                counter++
+            }
+            let fNode = current.next, after = fNode.next
+            current.next = after
+        }
+        this.length--
+    }
+}
 
-list.addAtHead(3);
-list.addAtTail(4);
-list.addAtIndex(0, 2);
-list.addAtIndex(0, 1);
-list.addAtTail(5);
+let list = new MyLinkedList()
 
-console.log(list);
+list.addAtHead(3)
+list.addAtTail(4)
+list.addAtIndex(0, 2)
+list.addAtIndex(0, 1)
+list.addAtTail(5)
 
-
-
+console.log(list)
