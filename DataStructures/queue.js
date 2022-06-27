@@ -69,8 +69,6 @@ class Queue {
     }
     isEmpty() {
         return !this.queue.length ? true : false
-        // if(!this.queue.length) return true
-        // return false
     }
     length() {
         return this.queue.length

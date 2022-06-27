@@ -77,6 +77,17 @@ class Stack {
     size() {
         return this.stack.length
     }
+    getMin() {
+        if (!this.stack.length) return null
+        if (this.stack.length === 1) return this.stack[0]
+
+        let min = this.stack[0]
+
+        for (let i = 1; i < this.stack.length; i++) {
+            if (this.stack[i] < min) min = this.stack[i]
+        }
+        return min
+    }
 }
 
 let stack = new Stack()
@@ -87,4 +98,4 @@ stack.push(3)
 stack.push(2)
 stack.push(1)
 
-console.log(stack.size())
+console.log(stack)
